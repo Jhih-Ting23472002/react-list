@@ -1,18 +1,40 @@
+import { useState } from "react";
+
 const Edit = ({ add }) => {
+  const [note, setNote] = useState("");
+  function noteChanged(e) {
+    setNote(e.target.value);
+  }
+  const [date, setDate] = useState("");
+  function dateChanged(e) {
+    setDate(e.target.value);
+  }
+  const [time, setTime] = useState("");
+  function timeChanged(e) {
+    setTime(e.target.value);
+  }
+console.log(note,date,time);
   function addItem() {
-    add([1, 2]);
+    add(function(prevData){
+      return[...prevData,
+        {note,
+        date,
+        time}]
+    });
   }
 
   return (
     <div>
       <h1>備忘錄</h1>
       <p>記事：</p>
-      <input type="text" />
+      <input type="text" value={note} onChange={noteChanged} />
       <p>日期：</p>
-      <input type="date" />
+      <input type="date" value={date} onChange={dateChanged}/>
       <p>時間：</p>
-      <input type="time" />
-      <button onClick={addItem} className="add">新增</button>
+      <input type="time" value={time} onChange={timeChanged}/>
+      <button onClick={addItem} className="add">
+        新增
+      </button>
     </div>
   );
 };
