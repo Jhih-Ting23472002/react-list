@@ -1,26 +1,23 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 const Edit = ({ add }) => {
-  const [note, setNote] = useState("");
+  const [note, setNote] = useState('')
   function noteChanged(e) {
-    setNote(e.target.value);
+    setNote(e.target.value)
   }
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState('')
   function dateChanged(e) {
-    setDate(e.target.value);
+    setDate(e.target.value)
   }
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState('')
   function timeChanged(e) {
-    setTime(e.target.value);
+    setTime(e.target.value)
   }
-console.log(note,date,time);
+  console.log(note, date, time)
   function addItem() {
-    add(function(prevData){
-      return[...prevData,
-        {note,
-        date,
-        time}]
-    });
+    add(function (prevData) {
+      return [...prevData, { note, date, time }]
+    })
   }
 
   return (
@@ -29,14 +26,14 @@ console.log(note,date,time);
       <p>記事：</p>
       <input type="text" value={note} onChange={noteChanged} />
       <p>日期：</p>
-      <input type="date" value={date} onChange={dateChanged}/>
+      <input type="date" value={date} onChange={dateChanged} />
       <p>時間：</p>
-      <input type="time" value={time} onChange={timeChanged}/>
+      <input type="time" value={time} onChange={timeChanged} />
       <button onClick={addItem} className="add">
         新增
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Edit;
+export default Edit

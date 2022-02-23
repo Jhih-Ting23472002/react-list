@@ -1,10 +1,13 @@
-const Item = () => {
-    return(
+const Item = ({ note, date, time }) => {
+  return (
     <div className="item">
-        我是item
-        <button className="remove">刪除</button>
+      <div>
+        <p>{note}</p>
+        <p>{`${date} ${time}`}</p>
+      </div>
+      <button className="remove">刪除</button>
     </div>
-    )
-};
+  )
+}
 
-export default Item;
+export default Item
