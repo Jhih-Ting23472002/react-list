@@ -17,6 +17,9 @@ const Edit = ({ add }) => {
   console.log(note, date, time)
   function addItem() {
     add(function (prevData) {
+      setNote('')
+      setDate('')
+      setTime('')
       return [{ id: v4(), note, date, time }, ...prevData]
     })
   }
